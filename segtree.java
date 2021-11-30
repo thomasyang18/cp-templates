@@ -42,19 +42,23 @@ public class segtree {
 		long query(int l, int r) {return query(1,0,n-1,l,r);}
 		public segt(int len) {t = new long[(n=len)*4]; lazy = new long[n*4];}	
 		
-		void push(int v) {
+		void push(int v, int l, int r) {
 			lazy[v*2+1] += lazy[v];
 			lazy[v*2] += lazy[v];
-			t[v*2] += lazy[v];
-			t[v*2+1] += lazy[v];
+			int m = (l+r)/2;
+			t[v*2] += lazy[v]*(m-l+1);
+			t[v*2+1] += lazy[v]*(r-m);
 			lazy[v] = 0;
 		}
 		
 		void update(int v, int tl, int tr, int l, int r, long new_val) {
 			if (l > r) return;
-			if (l == tl && r == tr) t[v] += new_val;
+			if (l == tl && r == tr) {
+				t[v] += new_val*(r-l+1);
+				lazy[v]+=new_val;
+			}
 			else {
-				push(v);
+				push(v,tl,tr);
 				int tm = (tl+tr)/2;
 				update(v*2, tl, tm, l, min(r, tm), new_val);
 				update(v*2+1, tm+1,tr, max(l, tm+1),r, new_val);
@@ -64,8 +68,8 @@ public class segtree {
 		
 		long query(int v, int tl, int tr, int l, int r) {
 			if (l > r) return 0;
-			push(v);
 			if (l <= tl && tr <= r) return t[v];
+			push(v,tl,tr);
 			int tm = (tl+tr)/2;
 			return query(v*2, tl, tm, l, min(r, tm)) + query(v*2+1, tm+1, tr, max(l, tm+1), r);
 		}
