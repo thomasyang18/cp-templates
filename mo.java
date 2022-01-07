@@ -27,7 +27,7 @@ public class mo {
 	}
 	void solve(long[] a, int[] l, int[]r) {
 		n =  a.length;
-		sqrt = l.length/(int)Math.sqrt(n); arr = new int[n];
+		sqrt = max(1,n/(int)Math.sqrt(l.length)); arr = new int[n];
 		for (int i = 0 ; i < n; i++) {
 			arr[i] = (int)a[i];
 		}
