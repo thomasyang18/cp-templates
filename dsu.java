@@ -7,6 +7,10 @@ public class dsu {
 		}
 	}
 	int find(int a) {return a == p[a] ? a: (p[a] = find(p[a]));}
-	void merge(int a, int b) {p[find(a)] = find(b);}
+	void merge(int a, int b) {
+		a = find(a);
+		b = find(b);
+		p[a] = b;
+	}
 	boolean check(int a, int b) {return find(a) == find(b);}
 }
