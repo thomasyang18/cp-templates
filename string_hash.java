@@ -1,9 +1,8 @@
 public class string_hash {
-	long pow;
-	long M = (long)1e9+7;
+	static long pow = (long)(Math.random()*M/2) + 500;
+	static long M = (long)1e9+7;
 	long[] h,p,h2,p2;
 	public string_hash(char[] in) {
-		pow = (long)(Math.random()*M/2) + 500;
 		h = new long[in.length+1];
 		h2 = new long[in.length+1];
 		p = new long[in.length+1];
