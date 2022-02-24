@@ -1,0 +1,51 @@
+#pragma GCC target ("avx2")
+#pragma GCC optimize ("O3")
+#pragma GCC optimize ("unroll-loops")
+
+#include<bits/stdc++.h>
+#include<math.h>
+using namespace std;
+
+typedef long long int ll;
+typedef long double ld;
+typedef pair<ll, ll> pl;
+
+#define G(x) ll x; cin >> x;
+#define GD(x) ld x; cin >> x;
+#define GS(s) string s; cin >> s;
+#define EX(x) { cout << x << '\n'; exit(0); }
+#define A(a) (a).begin(), (a).end()
+
+#define NN
+#define M 1000000007 // 998244353
+
+namespace seg {
+    typedef ll T;
+    T id=0;
+    T f(T a, T b) {return a+b;}
+
+    T t[2 * NN];
+    ll n=NN;  // array size
+
+    void modify(ll p, T value) {  // set value at position p
+      for (p+=n, t[p] = value; p /= 2;) t[p] = f(t[2*p], t[2*p+1]);
+    }
+
+    T query(ll l, ll r) { // fold f on interval [l, r)
+      T resl=id, resr=id;
+      for (l += n, r += n; l < r; l /= 2, r /= 2) {
+        if (l&1) resl = f(resl, t[l++]);
+        if (r&1) resr = f(t[--r], resr);
+      }
+      return f(resl, resr);
+    }
+}
+
+
+
+
+int main(){
+    ios_base::sync_with_stdio(false); cin.tie(0);
+    cout << fixed << setprecision(20);
+
+}
