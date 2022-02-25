@@ -16,36 +16,137 @@ typedef pair<ll, ll> pl;
 #define EX(x) { cout << x << '\n'; exit(0); }
 #define A(a) (a).begin(), (a).end()
 
-#define NN
 #define M 1000000007 // 998244353
 
-namespace seg {
+struct lseg{
     typedef ll T;
-    T id=0;
-    T f(T a, T b) {return a+b;}
+    typedef ll L;
+    ll n;
+    T idT = 0;
+    L idL = -2e18;
+    T combT(T a, T b){return a + b;}
+    L combL(L a, L b){
+        if (b == idL) return a;
+        return b;
+    }
+    T applyL(T a, L b){
+        if (b == idL) return a;
+        return b;
+    }
+    vector<T> t;
+    vector<L> lazy;
 
-    T t[2 * NN];
-    ll n=NN;  // array size
+    lseg(ll len){
+        n = 1;
+        while (n < len) n*=2;
+        t = vector<T>(n*2);
+        lazy = vector<L>(n*2);
+        for (int i = 0; i < n*2; i++) {
+            t[i] = idT;
+            lazy[i] = idL;
+        }
+    }
 
-    void modify(ll p, T value) {  // set value at position p
-      for (p+=n, t[p] = value; p /= 2;) t[p] = f(t[2*p], t[2*p+1]);
+    void build(ll p){ // build a single node
+        while (p > 1){
+            p/=2;
+            t[p] = combT(t[p*2], t[p*2+1]);
+        }
+    }
+
+    void parPushDown(ll p){
+        for (ll h = 26; h > 0; h--) {
+            ll i = p>>h; if (i > 0) push(i);
+        }
+    }
+
+    void push(ll v){
+        t[v] = applyL(t[v], lazy[v]);
+        if (v < n){
+            lazy[v*2] = combL(lazy[v*2], lazy[v]);
+            lazy[v*2+1] = combL(lazy[v*2+1], lazy[v]);
+        }
+        lazy[v] = idL;
+    }
+
+    void update(ll l, ll r, L value) {
+        // update on interval [l, r)
+        // update whatever lazy segments intersect with L and r, and sort of recurse to the next layer
+        // but try to do it w/o recursion cuz overhead moment
+        l += n, r += n;
+        ll l0 = l, r0 = r;
+        for (; l < r; l/=2, r/=2){
+            if (l&1){
+                lazy[l] = combL(lazy[l], value);
+                push(l++);
+            }
+            if (r&1){
+                lazy[--r] = combL(lazy[r], value);
+                push(r);
+            }
+        }
+        build(l0), build(r0-1);
     }
 
     T query(ll l, ll r) { // fold f on interval [l, r)
-      T resl=id, resr=id;
-      for (l += n, r += n; l < r; l /= 2, r /= 2) {
-        if (l&1) resl = f(resl, t[l++]);
-        if (r&1) resr = f(t[--r], resr);
-      }
-      return f(resl, resr);
+        T resl=idT, resr=idT;
+        l+=n, r+=n;
+        parPushDown(l), parPushDown(r-1);
+        for (; l < r; l /= 2, r /= 2) {
+            push(l); push(r);
+            if (l&1) {
+                resl = combT(resl, t[l++]);
+            }
+            if (r&1) {
+                resr = combT(t[r--], resr);
+            }
+        }
+        return combT(resl, resr);
     }
+};
+
+
+void program1(){
+    srand(30);
+#define N 10
+#define M 10
+    ll a[N];
+    lseg *seg = new lseg(N);
+    for (int i = 0; i < N; i++){
+        ll x = rand()%M;
+        a[i] = x;
+        seg->update(i,i+1,a[i]);
+    }
+    for (int t = 0; t < N; t++){
+        ll i = rand()%N;
+        if (rand()%2){
+            ll j = rand()%N;
+            if (i > j) swap(i,j);
+            ll x = rand()%M;
+            for (int l = i; l <= j; l++) a[l] = x;
+            seg->update(i, j+1, x);
+        }
+        else{
+            ll ans = a[i];
+            cout << i << endl;
+            for (int l = 0; l < N; l++) {
+                if (i == l) cout << "," << a[l] << ", ";
+                else cout << a[l] << " ";
+            }
+            cout << endl;
+            cout << ans << " " << seg->query(i,i+1) << endl;
+            if (ans != seg->query(i, i+1)) {
+                cout << "Nope\n";
+                return;
+            }
+        }
+    }
+
 }
-
-
-
 
 int main(){
     ios_base::sync_with_stdio(false); cin.tie(0);
     cout << fixed << setprecision(20);
-
+    program1();
+  // program2();
 }
