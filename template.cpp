@@ -10,6 +10,8 @@ typedef long long int ll;
 typedef long double ld;
 typedef pair<ll, ll> pl;
 
+#define K first
+#define V second
 #define G(x) ll x; cin >> x;
 #define GD(x) ld x; cin >> x;
 #define GS(s) string s; cin >> s;
