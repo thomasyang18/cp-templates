@@ -30,7 +30,7 @@ namespace lseg {
         }
     }
 
-    void modifyP(ll p, T v = idT) {
+    void modifyP(ll p, T v) {
         if(p < n) { push(p += n); t[p] = v; }
         while(p /= 2) t[p] = g(f(t[2 * p], t[2 * p + 1]), d[p]);
     }
@@ -41,7 +41,7 @@ namespace lseg {
             if(l & 1) apply(l++, v);
             if(r & 1) apply(--r, v);
         }
-        modifyP(l0), modifyP(r0 - 1);
+        modifyP(l0, idT), modifyP(r0 - 1, idT);
     }
 
     T query(ll l, ll r) {
