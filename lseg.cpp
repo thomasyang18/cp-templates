@@ -5,7 +5,7 @@ namespace lseg {
 
     T idT = 1e18, t[2 * NN];
     D idD = 0, d[NN];
-    ll n = (fill_n(d, n, idD), NN);
+    ll n = (fill_n(d, NN, idD), NN);
 
     // Applies right value to left value
     T f(T a, T b) { return min(a,b); }
