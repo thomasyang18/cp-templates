@@ -7,6 +7,7 @@ namespace lseg {
     D idD = 0, d[NN];
     ll n = (fill_n(d, n, idD), NN);
 
+    // Applies right value to left value
     T f(T a, T b) { return min(a,b); }
     T g(T a, D b) { return a + b; }
     D h(D a, D b) { return a + b; }
