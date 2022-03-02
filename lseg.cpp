@@ -1,15 +1,13 @@
 // combine joe and akif template, min segtree with addition atm
 namespace lseg {
+    
     typedef ll T;
     typedef ll D;
 
-    static constexpr T idT = 1e18;
-    static constexpr D idD = 0;
-    
-    T t[2 * NN];
-    D d[NN];
+    T idT = 1e18, t[2 * NN];
+    D idD = 0, d[NN];
     ll n = (fill_n(d, NN, idD), NN);
-
+    
     // Applies right value to left value
     T f(T a, T b) { return min(a,b); }
     T g(T a, D b) { return a + b; }
