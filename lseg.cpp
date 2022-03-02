@@ -15,6 +15,9 @@ namespace lseg {
     T g(T a, D b) { return a + b; }
     D h(D a, D b) { return a + b; }
 
+    
+    // EDIT ABOVE ONLY //
+    
     void apply(ll p, D v) {
         t[p] = g(t[p], v);
         if(p < n) d[p] = h(d[p], v);
