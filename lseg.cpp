@@ -3,8 +3,11 @@ namespace lseg {
     typedef ll T;
     typedef ll D;
 
-    T idT = 1e18, t[2 * NN];
-    D idD = 0, d[NN];
+    static constexpr T idT = 1e18;
+    static constexpr D idD = 0;
+    
+    T t[2 * NN];
+    D d[NN];
     ll n = (fill_n(d, NN, idD), NN);
 
     // Applies right value to left value
