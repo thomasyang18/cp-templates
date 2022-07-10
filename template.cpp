@@ -23,6 +23,9 @@ typedef pair<ll, ll> pl;
 
 
 int main(){
+//    freopen("a.in", "r", stdin);
+//    freopen("a.out", "w", stdout);
+
     ios_base::sync_with_stdio(false); cin.tie(0);
     cout << fixed << setprecision(20);
     
