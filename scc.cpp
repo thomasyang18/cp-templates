@@ -59,8 +59,10 @@ void scc_solve() {
 
 void add_edge(ll u, ll v){
     g[u].push_back(v);
-    g[v].push_back(u);
+    rg[v].push_back(u);
 }
+
+
 
 int main(){
 //    freopen("a.in", "r", stdin);
