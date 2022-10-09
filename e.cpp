@@ -98,6 +98,8 @@ int main(){
 			}
 		}
 
+		//-------------------------
+
 		multiset<ll> maxInInterval;
 		int fp = 0;
 
@@ -107,10 +109,10 @@ int main(){
 				maxInInterval.insert(dp[i+1][intervals[fp++].second]);
 			}
 
-			if (maxInInterval.size()) dp[i][j] = max(dp[i][j], p[i][j] + (*maxInInterval.begin()));
+			if (maxInInterval.size()) dp[i][j] = max(dp[i][j], p[i][j] + (*maxInInterval.rbegin()));
 
 			while (fp < intervals.size() and intervals[fp].first.first <= j) {
-				maxInInterval.erase(maxInInterval.find(dp[i+1][intervals[fp++].second]));
+				maxInInterval.erase( maxInInterval.find(dp[i+1][intervals[fp++].second]) );
 			}
 		}
 
