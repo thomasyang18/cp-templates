@@ -60,23 +60,32 @@ int main(){
 
 	vector<vector<ll>> p;
 	vector<vector<ll>> dp;
-	for (int i = 0; i < n; i++){
+	
+	for (int i = 0; i < m; i++){
 		p.push_back(vector<ll>());
 		dp.push_back(vector<ll>());
-		for (int j = 0; j < m; j++ ){ G(x)
+		for (int j = 0; j < n; j++ ){ G(x)
 			p[i].push_back(x);
 			dp[i].push_back(p[i][j]);
 		}
 	}
 
+	vector<pair<pl, ll>> intervals;
+
 	while(k--){
 		G(a) G(b) G(c)
+		intervals.push_back({{a-1, 0}, c-1});
+		intervals.push_back({{b-1,1}, c-1});
 		ranges[c-1].push_back({a-1,b-1});
 	}
 
 	// m is days, n is cities
 
 	ll ans = 0;
+
+	// group the intervals (a,b) together on line dp[i], and then they all can point exactly to the position dp[i+1][c]
+
+	sort(A(intervals));
 
 	for (int i = m-2; i >= 0; i--){
 		// build segtree
@@ -86,6 +95,22 @@ int main(){
 			dp[i][j] = max(dp[i][j], p[i][j] + dp[i+1][j]);
 			if (ranges[j].size()){
 				dp[i][j] = max(dp[i][j], p[i][j] + seg::query(ranges[j][0].first, ranges[j][0].second+1));
+			}
+		}
+
+		multiset<ll> maxInInterval;
+		int fp = 0;
+
+		for (int j= 0 ; j < n; j++){
+			while (fp < intervals.size() and intervals[fp].first.first <= j and intervals[fp].first.second == 0) {
+				// increment
+				maxInInterval.insert(dp[i+1][intervals[fp++].second]);
+			}
+
+			if (maxInInterval.size()) dp[i][j] = max(dp[i][j], p[i][j] + (*maxInInterval.begin()));
+
+			while (fp < intervals.size() and intervals[fp].first.first <= j) {
+				maxInInterval.erase(maxInInterval.find(dp[i+1][intervals[fp++].second]));
 			}
 		}
 
