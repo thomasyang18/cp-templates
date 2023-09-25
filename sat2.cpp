@@ -1,3 +1,4 @@
+// Verified on https://judge.yosupo.jp/submission/162957
 #pragma GCC target ("avx2")
 #pragma GCC optimize ("O3")
 #pragma GCC optimize ("unroll-loops")
@@ -18,25 +19,24 @@ typedef pair<ll, ll> pl;
 #define EX(x) { cout << x << '\n'; exit(0); }
 #define A(a) (a).begin(), (a).end()
 
-#define NN 100010
+#define NN 500010
 #define M 1000000007 // 998244353
-
-typedef bool boolean;
 
 vector<ll> g[2*NN], rev[2*NN];
 ll scc[2*NN];
 vector<ll> ord;
 ll n;
 
-ll ind(boolean sat, int v) {return v + (sat ? 0:n);}
+ll ind(bool sat, int v) {return v + (sat ? 0:n);}
 
 // DON'T CALL P! CALL ADD! ADD WILL ADD BOTH EDGES FOR YOU!
-void p(boolean bx, int x, boolean by, int y) {
+void p(bool bx, int x, bool by, int y) {
     g[ind(bx,x)].push_back(ind(by,y));
     rev[ind(by,y)].push_back(ind(bx,x));
 }
 
-void add(boolean bx, int x, boolean by, int y) {
+// Adds a disjunction
+void add(bool bx, int x, bool by, int y) {
     p(!bx,x,by,y);
     p(!by,y,bx,x);
 }
@@ -65,8 +65,8 @@ vector<ll> solve() {
     vector<ll> res(n);
     for (int i = 0; i < n; i++) {
         if (scc[i] == scc[i+n]) return {};
-        if (scc[i] > scc[i+n]) res[i] = true;
-        else res[i] = false;
+        if (scc[i] > scc[i+n]) res[i] = false;
+        else res[i] = true;
     } 
     return res;
 }
@@ -81,4 +81,16 @@ int main(){
     ios_base::sync_with_stdio(false); cin.tie(0);
     cout << fixed << setprecision(20);
     
+    GS(s) GS(s2) cin >> n; G(m)
+    while (m--){
+        G(a) G(b) G(c)
+        add(a < 0, abs(a)-1, b < 0, abs(b) - 1);
+    }
+    auto res = solve();
+    cout << "s ";
+    if (res.size()) {
+        cout << "SATISFIABLE\n";
+        cout << "v ";
+        for (int i = 0; i < res.size(); ++i) cout << (res[i] ? 1: -1) * (i+1) << " "; cout << "0\n"; 
+    }  else cout << "UNSATISFIABLE\n";
 }
