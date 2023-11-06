@@ -26,7 +26,7 @@ ll ncr(ll n, ll k) {
     if (min(n, k) < 0) return 0;
     if (n < k) return 0;
     if (n == k || k == 0) return 1;
-return f[i] * fi[n-k]%M * fi[k]%M;
+return f[n] * fi[n-k]%M * fi[k]%M;
 }
 
 ll sab(ll n, ll k) {
