@@ -12,6 +12,7 @@ constexpr ll inv(ll b) {
 
 // large n, small k
 ll ncr(ll n, ll k) {
+// 0c0 = 1, but sometimes they want non empty subsets 
     if (min(n, k) < 0) return 0;
     if (n < k) return 0;
     if (n == k || k == 0) return 1;
