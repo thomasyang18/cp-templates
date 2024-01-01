@@ -1,3 +1,11 @@
+/*
+300iq editorial for https://discuss.codechef.com/t/closestq-editorial/14517
+
+(there exists queryseg solution that does the maintaining straight up for QlogQ * C, but it's slower and less instructive imo)
+
+
+*/
+
 #pragma GCC target ("avx2")
 #pragma GCC optimize ("O3")
 #pragma GCC optimize ("unroll-loops")
