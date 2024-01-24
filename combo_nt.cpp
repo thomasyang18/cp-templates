@@ -1,4 +1,4 @@
-ll f[NN*2], fi[NN*2];
+ll f[FN], fi[FN];
 constexpr ll bpow(ll b, ll e) {
 	ll r = 1; for (; e; e/=2) {
 		if (e&1) r=r*b%M;
@@ -23,8 +23,12 @@ ll sab(ll n, ll k) {
 
 
 	f[0] = 1;
-	F(i, 1, 2*NN) f[i] = f[i-1]*i%M;
-	F(i, 0, 2*NN) fi[i] = inv(f[i]);
+	F(i, 1, FN) f[i] = f[i-1]*i%M;
+ 
+    fi[FN-1] = bpow(f[FN-1], M-2);
+    
+    for (ll i = FN-2; i >= 0; --i)
+        fi[i] = fi[i + 1] * (i+1) % M;
 
 
 
