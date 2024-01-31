@@ -34,10 +34,12 @@ ll sab(ll n, ll k) {
 
 // large n, small k
 ll ncr(ll n, ll k) {
+	// static map<pl, ll> cache 
 // 0c0 = 1, but sometimes they want non empty subsets 
     if (min(n, k) < 0) return 0;
     if (n < k) return 0;
     if (n == k || k == 0) return 1;
+    if (k > n/2) return ncr(n, n - k);
 
     ll ans = 1;
     F(i, 1, k+1) ans = ans * inv(i)%M;
