@@ -1,0 +1,210 @@
+is my universe actually correct...? 
+QUERYING 8
+1 2 3 4 5 6 7 8 9 10 
+1 2 2 2 1 1 3 0 3 1 
+wat? 3
+======================
+THE OTHER UNIVERSE???? 
+2 3 5 6 7 8 10 
+2 2 1 1 3 0 1 
+WTF 3 3
+is my universe actually correct...? 
+QUERYING 1
+1 4 8 9 
+1 2 0 3 
+wat? 3
+======================
+THE OTHER UNIVERSE???? 
+1 8 
+0 1 
+WTF 1 2
+is my universe actually correct...? 
+QUERYING 4
+1 4 9 
+0 1 2 
+wat? 2
+======================
+THE OTHER UNIVERSE???? 
+1 
+0 
+WTF 0 1
+is my universe actually correct...? 
+QUERYING 9
+9 
+0 
+wat? 0
+======================
+RETURNING ZERO 0
+6
+is my universe actually correct...? 
+QUERYING 8
+1 2 3 4 5 6 7 8 9 10 
+1 2 2 2 1 1 -7 0 3 1 
+wat? 3
+======================
+THE OTHER UNIVERSE???? 
+2 3 5 6 7 8 10 
+2 2 1 1 -7 0 1 
+WTF 2 3
+is my universe actually correct...? 
+QUERYING 1
+1 4 8 9 
+1 2 0 3 
+wat? 3
+======================
+THE OTHER UNIVERSE???? 
+1 8 
+0 1 
+WTF 1 2
+is my universe actually correct...? 
+QUERYING 4
+1 4 9 
+0 1 2 
+wat? 2
+======================
+THE OTHER UNIVERSE???? 
+1 
+0 
+WTF 0 1
+is my universe actually correct...? 
+QUERYING 9
+9 
+0 
+wat? 0
+======================
+RETURNING ZERO 0
+5
+is my universe actually correct...? 
+QUERYING 8
+1 2 3 4 5 6 7 8 9 10 
+1 -8 -8 2 -9 -9 -17 -10 3 -9 
+wat? 3
+======================
+is my universe actually correct...? 
+QUERYING 8
+2 3 5 6 7 8 10 
+-8 -8 -9 -9 -17 -10 -9 
+wat? -8
+======================
+is my universe actually correct...? 
+QUERYING 5
+3 5 6 7 8 
+-8 -9 -9 -17 -10 
+wat? -8
+======================
+RETURNING ZERO -8
+THE OTHER UNIVERSE???? 
+2 8 10 
+-8 -10 -9 
+WTF -8 1
+THE OTHER UNIVERSE???? 
+1 4 8 9 
+1 2 -10 3 
+WTF 3 1
+4
+****************************************************************************
+is my universe actually correct...? 
+QUERYING 8
+1 2 3 4 5 6 7 8 9 10 
+1 -8 -8 2 -9 -9 -17 -10 3 -9 
+wat? 3
+======================
+THE OTHER UNIVERSE???? 
+2 3 5 6 7 8 10 
+-8 -8 -9 -9 -17 -10 -9 
+WTF -8 2
+is my universe actually correct...? 
+QUERYING 1
+1 4 8 9 
+1 2 -10 3 
+wat? 3
+======================
+THE OTHER UNIVERSE???? 
+1 8 
+0 -9 
+WTF 0 1
+is my universe actually correct...? 
+QUERYING 4
+1 4 9 
+0 1 2 
+wat? 2
+======================
+RETURNING ZERO 0
+1
+****************************************************************************
+is my universe actually correct...? 
+QUERYING 8
+1 2 3 4 5 6 7 8 9 10 
+1 -8 -8 2 -9 -9 -17 -10 3 -9 
+wat? 3
+======================
+is my universe actually correct...? 
+QUERYING 8
+2 3 5 6 7 8 10 
+-8 -8 -9 -9 -17 -10 -9 
+wat? -8
+======================
+is my universe actually correct...? 
+QUERYING 5
+3 5 6 7 8 
+-8 -9 -9 -17 -10 
+wat? -8
+======================
+THE OTHER UNIVERSE???? 
+5 6 8 
+-10 -8 -9 
+WTF -8 1
+is my universe actually correct...? 
+QUERYING 3
+3 5 7 
+-9 -10 -18 
+wat? -9
+======================
+RETURNING ZERO -10
+THE OTHER UNIVERSE???? 
+2 8 10 
+-8 -10 -9 
+WTF -8 2
+THE OTHER UNIVERSE???? 
+1 4 8 9 
+1 2 -10 3 
+WTF 3 2
+5
+is my universe actually correct...? 
+QUERYING 8
+1 2 3 4 5 6 7 8 9 10 
+1 -16 -8 2 -9 -13 -17 -10 3 -9 
+wat? 3
+======================
+is my universe actually correct...? 
+QUERYING 8
+2 3 5 6 7 8 10 
+-16 -8 -9 -13 -17 -10 -9 
+wat? -8
+======================
+THE OTHER UNIVERSE???? 
+3 5 6 7 8 
+-8 -9 -13 -17 -10 
+WTF -8 2
+is my universe actually correct...? 
+QUERYING 10
+2 8 10 
+-16 -10 -9 
+wat? -9
+======================
+THE OTHER UNIVERSE???? 
+8 
+-10 
+WTF -10 1
+is my universe actually correct...? 
+QUERYING 2
+2 
+-18 
+wat? -18
+======================
+RETURNING ZERO -18
+THE OTHER UNIVERSE???? 
+1 4 8 9 
+1 2 -10 3 
+WTF 3 2
+5

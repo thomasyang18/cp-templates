@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "*.scm": "scheme",
+        "*.ipp": "cpp",
+        "ostream": "cpp",
+        "iostream": "cpp",
+        "deque": "cpp",
+        "string": "cpp",
+        "vector": "cpp"
+    }
+}
