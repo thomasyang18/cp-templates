@@ -1,0 +1,24 @@
+{
+    "files.associations": {
+        "*.scm": "scheme",
+        "*.tcc": "cpp",
+        "charconv": "cpp",
+        "chrono": "cpp",
+        "expected": "cpp",
+        "optional": "cpp",
+        "format": "cpp",
+        "ratio": "cpp",
+        "system_error": "cpp",
+        "array": "cpp",
+        "functional": "cpp",
+        "regex": "cpp",
+        "tuple": "cpp",
+        "type_traits": "cpp",
+        "utility": "cpp",
+        "*.ipp": "cpp",
+        "variant": "cpp",
+        "istream": "cpp",
+        "ostream": "cpp",
+        "iostream": "cpp"
+    }
+}

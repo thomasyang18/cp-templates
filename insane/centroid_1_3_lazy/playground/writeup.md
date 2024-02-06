@@ -1,6 +1,6 @@
 # What is the problem?
 
-We have two types of operations on a tree.
+We have two types of queries on a tree we want to support
 
 1. (x, v) => Add V to all nodes in the subtree rooted at X, relative to 1.
 2. (x) => Compute max(dist(x, y) - a[y])  
@@ -84,3 +84,11 @@ Like, we should theoretically be able to move this to solve dynamic diameter rea
 # Pitfalls
 
 - The above problem can apparently be solved just with HLD :/ 
+
+
+
+# ideas
+
+Leaves are kinda expensive, but maybe we can just straight up update them in a global array, and when we get to the end, we brute force? if we're a leaf, no need to fiddle around with a second array of shit, just update it accordingly anyways.
+
+So if you already have a method to do subtree updates (lazy segtree), then we can calculate both inside the centroid tree and outside? idfk 

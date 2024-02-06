@@ -1,4 +1,4 @@
-
+// cleaned up code 
 
 #pragma GCC target ("avx2")
 #pragma GCC optimize ("O3")
@@ -156,8 +156,6 @@ struct lztree {
 };
 
 struct centroid_tree {
-    // operates on the assumption that both c[0] and c[1] are filled, or neither are filled 
-    // (binary tree)
     int centroid; 
     centroid_tree* c[2] = {nullptr, nullptr};
 
@@ -165,11 +163,9 @@ struct centroid_tree {
     
     T lazy = 0;
 
-    // inefficient way of building for now 
-    // this is so ugly
 
     lztree* seg = nullptr;
-    vector<pair<int, T>>* arr = nullptr; // 
+    vector<pair<int, T>>* arr = nullptr; 
 
     constexpr static ll THRESHOLD = 20; // threshold for just storing repr as array 
 
