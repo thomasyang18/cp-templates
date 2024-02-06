@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.scm": "scheme",
+        "string_view": "cpp"
+    }
+}
