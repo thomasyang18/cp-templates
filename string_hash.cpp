@@ -9,7 +9,6 @@ OP(+, +) OP(*, *) OP(-, + M -)
 mt19937 gen(chrono::steady_clock::now().time_since_epoch().count());
 uniform_int_distribution<ll> dist(256, M - 1);
  
-ll ans[NN];
 hsh p[NN], h[NN];
  
  
