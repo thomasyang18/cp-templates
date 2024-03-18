@@ -2,7 +2,7 @@
 const ll NN = 1e6+10;
 typedef pair<unsigned ll, ll> hsh;
  
-#define M 1000000321
+#define M 1000000007
 #define OP(x, y) constexpr hsh operator x (const hsh a, const hsh b) { return { a.K x b.K, (a.V y b.V + M) % M }; }
 OP(+, +) OP(*, *) OP(-, + M -)
 mt19937 gen(chrono::steady_clock::now().time_since_epoch().count());
